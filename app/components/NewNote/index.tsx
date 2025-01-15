@@ -1,8 +1,11 @@
 import styles from "./NewNote.css";
 
 function NewNote() {
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
   return (
-    <form method="post" id="note-form">
+    <form method="post" id="note-form" onSubmit={submitHandler}>
       <p>
         <label htmlFor="title">Title</label>
         <input type="text" id="title" name="title" required />
@@ -12,7 +15,7 @@ function NewNote() {
         <textarea id="content" name="content" rows={5} required />
       </p>
       <div className="form-actions mt-2">
-        <button>Add Note</button>
+        <button type="submit">Add Note</button>
       </div>
     </form>
   );
